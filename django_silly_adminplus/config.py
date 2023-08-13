@@ -4,6 +4,7 @@ from django.conf import settings
 SILLY_ADMINPLUS = {
     'TEMPLATE': 'adminplus.html',
     'DSAP_PREFIX': 'dsap/',
+    'USE_ADMINPLUS_APP': False,
 }
 
 try:
