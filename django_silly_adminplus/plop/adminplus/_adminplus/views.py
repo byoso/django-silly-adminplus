@@ -53,4 +53,3 @@ def adminplus(request):
         return redirect('admin:index')
 
     return render(request, SILLY_ADMINPLUS['TEMPLATE'])
-
