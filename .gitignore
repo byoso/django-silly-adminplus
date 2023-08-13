@@ -1,0 +1,17 @@
+# environment
+_project_fake/
+_users/
+subscriptions/
+/templates
+.venv/
+.env
+manage.py
+__pycache__/
+*.sqlite3
+
+# packaging
+.eggs/
+.egg-info/
+build/
+dist/
+django_silly_adminplus.egg-info/
