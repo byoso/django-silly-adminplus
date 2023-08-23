@@ -30,12 +30,17 @@
     background-color: #407f4f;
     border-bottom: 1px solid #dbdbdb;
   }
-
-
+  .error {
+        background-color: rgb(255, 64, 64);
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+  }
 
 </style>
 
-<div id="app">
+<div>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-item">
@@ -66,16 +71,7 @@
       <h1 class="title is-4">Configuration</h1>
       <form method="post">
         {% csrf_token %}
-        <div class="inline">
-            open subscriptions:
-
-          <input type="checkbox" name="open_subscriptions"
-          {% if configuration.open_subscriptions%}
-           checked
-          {% endif %}
-           >
-
-        </div>
+        {{ config_form.as_p }}
 
         <input type="submit" value="confirm" class="button is-success is-light mt-2">
       </form>

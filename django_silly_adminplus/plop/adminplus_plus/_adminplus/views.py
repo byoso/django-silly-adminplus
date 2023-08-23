@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from django_silly_adminplus.config import SILLY_ADMINPLUS
 from .models import Configuration
+from .forms import ConfigForm
 
 User = get_user_model()
 
@@ -53,23 +54,29 @@ def adminplus(request):
         return redirect('admin:index')
 
     if request.method == 'POST':
-        print("=== request.POST - open_subscriptions: ", request.POST.get('open_subscriptions'))
+        config_form = ConfigForm(request.POST)
         configuration = Configuration.objects.first()
-        if request.POST.get('open_subscriptions') == "on":  # checkbox returns "on" or None
-            configuration.open_subscriptions = True
-        else:
-            configuration.open_subscriptions = False
-        configuration.save()
+        if config_form.is_valid():
+            # configuration.open_subscriptions = config_form.cleaned_data['open_subscriptions']
+            configuration.save()
 
-        messages.add_message(
-            request,
-            messages.SUCCESS,
-            message="Configuration updated successfully",
-            extra_tags="success")
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                message="Configuration updated successfully",
+                extra_tags="success")
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                message="Invalid form",
+                extra_tags="danger")
 
     configuration = Configuration.objects.first()
+    config_form = ConfigForm(instance=configuration)
     context = {
         'configuration': configuration,
+        'config_form': config_form,
     }
 
     return render(request, SILLY_ADMINPLUS['TEMPLATE'], context)
