@@ -55,7 +55,6 @@ setup(
         "django_silly_adminplus.plop.adminplus_plus._adminplus",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.management",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.management.commands",
-        "django_silly_adminplus.plop.adminplus_plus._adminplus.migrations",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.templates",
         "django_silly_adminplus.plop.adminplus_plus._adminplus/templates._adminplus",
         "django_silly_adminplus.templates",
