@@ -50,7 +50,7 @@
           {% block branding %}{% endblock %}
 
           {% if user.is_active and user.is_staff %}
-          <a href="{% url 'adminplus:adminplus' %}">
+          <a href="{% url 'adminplus' %}">
             <h1 class="dsaplus-button">Admin +</h1>
           </a>
           {% endif %}

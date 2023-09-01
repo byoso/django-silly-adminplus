@@ -19,18 +19,39 @@
 </head>
 <body>
 
-<div id="app">
+<style>
+  html {
+    background-color: #6bd483;
+  }
+  .content {
+    margin: 10px;
+  }
+  .navbar {
+    background-color: #407f4f;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .error {
+        background-color: rgb(255, 64, 64);
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+  }
+
+</style>
+
+<div>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-item">
         <a href="{% url 'admin:index' %}" class="button">Django Admin</a>
       </div>
       <div class="navbar-item">
-        <a class="title" href="{% url 'adminplus:adminplus' %}">Admin +</a>
+        <a class="title" href="{% url 'adminplus' %}">Admin +</a>
       </div>
   </nav>
     {% for message in messages %}
-      <article class="message is-{{ message.tags }}">
+      <article class="message is-{{ message.tags }}" onclick="this.remove()">
         <div class="message-header">
           {{ message }}
           <button class="delete" aria-label="delete"></button>
@@ -39,13 +60,18 @@
     {% endfor %}
 
 
-  {% block content %}
+  <!-- add more content as you wish -->
+
   <div class="content">
-    <h1 class="title is-4">Users</h1>
-    <a class="button" href="{% url 'adminplus:adminplus_create_user' %}">+ New user</a>
-    <hr>
+      <h1 class="title is-4">Configuration</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ config_form.as_p }}
+
+        <input type="submit" value="confirm" class="button is-success is-light mt-2">
+      </form>
+    <div>
   </div>
-  {% endblock content %}
 
 
 </div>
@@ -53,36 +79,5 @@
 
 </body>
 
-<script>
-  const { createApp } = Vue
-
-  createApp({
-    delimiter: ['[[', ']]'],
-    data() {
-      return {
-      }
-    },
-    computed: {
-    },
-    methods: {
-    }
-  }).mount('#app')
-</script>
-
-<style scoped>
-  html {
-    background-color: #6bd483;
-  }
-  .content {
-    margin: 5px;
-  }
-  .navbar {
-    background-color: #407f4f;
-    border-bottom: 1px solid #dbdbdb;
-  }
-
-
-
-</style>
 
 </html>

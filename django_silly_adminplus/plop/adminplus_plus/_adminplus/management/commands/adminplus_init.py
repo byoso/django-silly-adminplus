@@ -10,7 +10,7 @@ User = get_user_model()
 
 
 class Command(BaseCommand):
-    """Django command to pause execution until database is available"""
+    """Django command to pause initialize the adminplus configuration singleton"""
 
     def handle(self, *args, **options):
         print('Adminplus initialization...')

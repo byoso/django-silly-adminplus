@@ -19,12 +19,3 @@ class Configuration(models.Model):
         if config and config.pk != this_config.pk:
             raise IntegrityError("There can only be one instance of Configuration")
         super(Configuration, self).save(*args, **kwargs)
-
-
-# Create the singleton if it doesn't exist
-try:
-    # the try/except is here to avoid a migration error
-    if not Configuration.objects.filter(id__gte=1).exists():
-        Configuration.objects.create()
-except OperationalError:
-    pass

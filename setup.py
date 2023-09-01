@@ -46,29 +46,32 @@ setup(
     ],
     packages=[
         "django_silly_adminplus",
+        "django_silly_adminplus.management",
+        "django_silly_adminplus.management.commands",
         "django_silly_adminplus.plop",
         "django_silly_adminplus.plop.adminplus",
         "django_silly_adminplus.plop.adminplus._adminplus",
         "django_silly_adminplus.plop.adminplus._adminplus.templates",
         "django_silly_adminplus.plop.adminplus._adminplus.templates._adminplus",
+        "django_silly_adminplus.plop.adminplus._adminplus.templates.admin",
         "django_silly_adminplus.plop.adminplus_plus",
         "django_silly_adminplus.plop.adminplus_plus._adminplus",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.management",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.management.commands",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.templates",
-        "django_silly_adminplus.plop.adminplus_plus._adminplus/templates._adminplus",
+        "django_silly_adminplus.plop.adminplus_plus._adminplus.templates._adminplus",
+        "django_silly_adminplus.plop.adminplus_plus._adminplus.templates.admin",
         "django_silly_adminplus.templates",
         "django_silly_adminplus.templates.admin",
         ],
     # include_package_data=True,
     package_data={'': ['*.txt', '*.html', '*.po', '*.mo', '*.pot']},
     python_requires='>=3.7',
-    install_requires=["flamewok>=1.2.1"],
+    # install_requires=[],
     keywords='django adminplus admin',
-    entry_points={
-        "console_scripts": [
-            "django_silly_adminplus=django_silly_adminplus.cmd:cmd",
-        ]
-    },
+    # entry_points={
+    #     "console_scripts": [
+    #     ]
+    # },
     setup_requires=['wheel'],
 )
