@@ -6,7 +6,7 @@ from .forms import ConfigForm
 
 
 def adminplus(request):
-    if not request.user.is_staff or not request.user.is_active:
+    if not request.user.is_superuser or not request.user.is_active:
         return redirect('admin:index')
 
     if request.method == 'POST':

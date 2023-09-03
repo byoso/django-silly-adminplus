@@ -61,8 +61,6 @@ setup(
         "django_silly_adminplus.plop.adminplus_plus._adminplus.templates",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.templates._adminplus",
         "django_silly_adminplus.plop.adminplus_plus._adminplus.templates.admin",
-        "django_silly_adminplus.templates",
-        "django_silly_adminplus.templates.admin",
         ],
     # include_package_data=True,
     package_data={'': ['*.txt', '*.html', '*.po', '*.mo', '*.pot']},
